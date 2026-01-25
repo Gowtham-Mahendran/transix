@@ -18,7 +18,7 @@ jobs:
       - name: Set up uv
         uses: astral-sh/setup-uv@v3
         with:
-          enable-cache: true
+          enable-cache: False
 
       - name: Install Python
         run: uv python install ${{ matrix.python }}
