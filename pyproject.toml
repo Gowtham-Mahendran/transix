@@ -45,7 +45,8 @@ Issues = "https://github.com/Gowtham-Mahendran/transix/issues"
 [project.optional-dependencies]
 dev = [
   "pytest>=9.0",
-  "ruff>=0.14"
+  "ruff>=0.14",
+  "pytest-cov>=7.0"
 ]
 
 [tool.uv-build]
@@ -53,6 +54,11 @@ package-dir = "src"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = [
+  "--cov=transix",
+  "--cov-report=term-missing",
+  "--cov-fail-under=90",
+]
 
 [tool.ruff]
 line-length = 88

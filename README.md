@@ -1,8 +1,9 @@
 # transix
 
-[![PyPI](https://img.shields.io/pypi/v/transix)](https://pypi.org/project/transix/)
+[![PyPI](https://img.shields.io/pypi/v/transix.svg)](https://pypi.org/project/transix/)
 [![Python](https://img.shields.io/pypi/pyversions/transix)](https://pypi.org/project/transix/)
-[![License](https://img.shields.io/pypi/l/transix)](https://pypi.org/project/transix/)
+[![CI](https://github.com/Gowtham-Mahendran/transix/actions/workflows/tests.yml/badge.svg)](https://github.com/Gowtham-Mahendran/transix/actions/workflows/tests.yml)
+[![License](https://img.shields.io/pypi/l/transix.svg)](https://github.com/Gowtham-Mahendran/transix/blob/main/LICENSE)
 
 **transix** is a lightweight toolkit for numerical transformations.
 
