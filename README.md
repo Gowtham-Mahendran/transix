@@ -8,12 +8,11 @@
 **transix** is a lightweight toolkit for numerical transformations.
 
 It provides clean, reusable, and well-tested building blocks for working with
-numerical transforms, with an emphasis on clarity, correctness, and
-vectorized usage.
+numerical transforms.
 
 ## Installation
 
-You can install this package using `pip install transix`
+transix can be installed using `pip install transix`
 
 ## Example: Numerical Transform
 
@@ -32,16 +31,9 @@ a1, b1, c1 = seq.pos
 a2, b2, c2 = seq.neg
 ```
 
-The API works equally well with NumPy arrays (time-series or batch data).
-
-
 ## Testing
 
-All transforms are validated using physics- and identity-based tests.
-
-```bash
-pytest
-```
+All transforms are validated using extensive, detailed tests verified with `pytest`.
 
 ## Roadmap
 

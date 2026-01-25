@@ -4,8 +4,10 @@ __pycache__
 transix.egg-info/
 .ruff_cache/
 .vscode/
-docs/
 .python-version
 uv.lock
 dist/
 .coverage
+
+#sphinx
+sphinx/build

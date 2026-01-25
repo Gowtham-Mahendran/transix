@@ -46,7 +46,10 @@ Issues = "https://github.com/Gowtham-Mahendran/transix/issues"
 dev = [
   "pytest>=9.0",
   "ruff>=0.14",
-  "pytest-cov>=7.0"
+  "pytest-cov>=7.0",
+  "Sphinx>=9.1",
+  "sphinx-book-theme>=1.1.4",
+  "myst-parser>=5.0"
 ]
 
 [tool.uv-build]
