@@ -11,7 +11,7 @@ class SequenceABC(NamedTuple):
     neg: tuple  # (a2, b2, c2)
 
 
-def abc_to_seq(a, b, c):
+def abc_to_sym(a, b, c):
     a = np.asarray(a, dtype=complex)
     b = np.asarray(b, dtype=complex)
     c = np.asarray(c, dtype=complex)

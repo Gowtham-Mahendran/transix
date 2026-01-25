@@ -24,7 +24,7 @@ a = 1 + 0j
 b = np.exp(-1j * 2*np.pi/3)
 c = np.exp( 1j * 2*np.pi/3)
 
-seq = transix.abc_to_seq(a, b, c)
+seq = transix.abc_to_sym(a, b, c)
 
 a0, b0, c0 = seq.zero
 a1, b1, c1 = seq.pos

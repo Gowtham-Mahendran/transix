@@ -11,7 +11,7 @@ def test_returns_complex_for_scalar_input():
     # passing scalar quantities
     a, b, c = 1, -0.5, 0.5
 
-    seq = transix.abc_to_seq(a, b, c)
+    seq = transix.abc_to_sym(a, b, c)
 
     # seq.zero + seq.pos + seq.neg is a tuple concatenation
     # (a0, b0, c0, a1, b1, c1, a2, b2, c2)
@@ -28,7 +28,7 @@ def test_balanced_abc_positive_sequence():
     A = 2.0 * np.exp(1j * 0.3)
     a, b, c = A, (alpha * alpha) * A, alpha * A
 
-    seq = transix.abc_to_seq(a, b, c)
+    seq = transix.abc_to_sym(a, b, c)
 
     # zero and negative components should be zero
     for x in seq.zero + seq.neg:
@@ -48,7 +48,7 @@ def test_balanced_abc_negative_sequence():
     A = 2.0 * np.exp(1j * 0.3)
     a, b, c = A, alpha * A, (alpha * alpha) * A
 
-    seq = transix.abc_to_seq(a, b, c)
+    seq = transix.abc_to_sym(a, b, c)
 
     # zero and positive components should be zero
     for x in seq.zero + seq.pos:
@@ -64,7 +64,7 @@ def test_pure_zero_sequence():
     # defining a three phase vectors of same magnitude and angle
     A = 2.0 * np.exp(1j * 0.3)
 
-    seq = transix.abc_to_seq(A, A, A)
+    seq = transix.abc_to_sym(A, A, A)
 
     # positive and negative components should be zero
     for x in seq.pos + seq.neg:
@@ -79,7 +79,7 @@ def test_pure_zero_sequence():
 def test_reconstruction_principle():
     a, b, c = (0.7 + 1.1j), (-0.2 + 0.3j), (1.3 - 0.4j)
 
-    seq = transix.abc_to_seq(a, b, c)
+    seq = transix.abc_to_sym(a, b, c)
 
     # Fortescue: any vector can be decomposed to sets of balanced vectors
     # Their sums should again form the original vector
@@ -95,7 +95,7 @@ def test_vectorized_inputs_keep_shape():
     c = np.array([0.2 - 0.1j, 0.5 + 0.5j, -1j])
     # print(a.shape)
 
-    seq = transix.abc_to_seq(a, b, c)
+    seq = transix.abc_to_sym(a, b, c)
 
     # Output should have the same shape (3,)
     for comp in seq.zero + seq.pos + seq.neg:
@@ -105,7 +105,7 @@ def test_vectorized_inputs_keep_shape():
 
 def test_api_ordering_zero_pos_neg():
     # The output length should be 3 and in the order of zero, positive and negative
-    seq = transix.abc_to_seq(1 + 0j, 2 + 0j, 3 + 0j)
+    seq = transix.abc_to_sym(1 + 0j, 2 + 0j, 3 + 0j)
 
     assert len(seq) == 3
     assert seq[0] == seq.zero
@@ -118,7 +118,7 @@ def test_broadcast_scalar_with_array():
     b = 0.0
     c = 0.0
 
-    seq = transix.abc_to_seq(a, b, c)
+    seq = transix.abc_to_sym(a, b, c)
 
     for comp in seq.zero + seq.pos + seq.neg:
         assert comp.shape == a.shape

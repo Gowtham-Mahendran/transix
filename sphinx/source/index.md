@@ -11,4 +11,4 @@ Documentation for each transform and function is organized below.
 :maxdepth: 1
 :caption: Transforms
 
-transforms/abc_to_seq
+transforms/abc_to_sym
