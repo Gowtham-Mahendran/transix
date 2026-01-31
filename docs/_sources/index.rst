@@ -1,17 +1,16 @@
-.. transix documentation master file, created by
-   sphinx-quickstart on Sun Jan 25 17:58:17 2026.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+transix
+========
 
-transix documentation
-=====================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
+Transix is a lightweight Python library for numerical transformations.
 
+Documentation for each transform and function is organized below.
+
+Contents
+--------
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :caption: Functions
 
+   transforms/abc_to_sym
