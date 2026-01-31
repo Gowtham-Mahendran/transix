@@ -6,6 +6,13 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+import os
+import sys
+
+# docs are in: transix/sphinx/
+# package is in: transix/transix/
+sys.path.insert(0, os.path.abspath("../.."))
+
 project = 'transix'
 copyright = '2026, Gowtham Mahendran'
 author = 'Gowtham Mahendran'
@@ -14,10 +21,14 @@ release = 'v0.0.1'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ["myst_parser"]
+extensions = [
+    "numpydoc",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.napoleon",
+    ]
 source_suffix = {
     ".rst": "restructuredtext",
-    ".md": "markdown",
 }
 
 templates_path = ['_templates']
