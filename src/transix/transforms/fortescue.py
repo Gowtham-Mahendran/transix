@@ -13,7 +13,7 @@ class SequenceABC(NamedTuple):
 
 def abc_to_sym(a, b, c):
     r"""
-    Compute symmetrical components (Fortescue transform) from abc quantities.
+    Compute symmetrical components (Fortescue transform [1]) from abc quantities.
 
     Parameters
     ----------
@@ -33,6 +33,15 @@ def abc_to_sym(a, b, c):
 
         ``out.neg`` : tuple of complex
             Negative-sequence phase quantities ``(a2, b2, c2)``.
+
+    Other Parameters
+    ----------------
+    power_invariant : bool, optional
+        (Planned) If True, use the power-invariant Fortescue formulation.
+        Default is False (amplitude-invariant).
+
+    decimals : int, optional
+        (Planned) Number of decimal places to round complex outputs.
 
     Notes
     -----
@@ -86,6 +95,15 @@ def abc_to_sym(a, b, c):
     (72.29+11.55j, -26.14-68.38j, -46.15+56.83j)
     >>> seq.neg
     (-40.29-26.55j, 43.14-21.62j, -2.85+48.17j)
+
+    The original sequence can be constructed again by,
+
+    >>> seq.zero[0]+seq.pos[0]+seq.neg[0]
+    60+0j
+    >>> seq.zero[1]+seq.pos[1]+seq.neg[1]
+    45-75j
+    >>> seq.zero[2]+seq.pos[2]+seq.neg[2]
+    -21+120j
 
     References
     ----------

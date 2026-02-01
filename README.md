@@ -4,27 +4,22 @@
 [![Python](https://img.shields.io/pypi/pyversions/transix)](https://pypi.org/project/transix/)
 [![CI](https://github.com/Gowtham-Mahendran/transix/actions/workflows/tests.yml/badge.svg)](https://github.com/Gowtham-Mahendran/transix/actions/workflows/tests.yml)
 [![License](https://img.shields.io/pypi/l/transix.svg)](https://github.com/Gowtham-Mahendran/transix/blob/main/LICENSE)
+[![Docs](https://img.shields.io/badge/docs-online-blue)](https://Gowtham-Mahendran.github.io/transix/)
 
-**transix** is a lightweight toolkit for numerical transformations.
-
-It provides clean, reusable, and well-tested building blocks for working with
-numerical transforms.
+**transix** is a lightweight toolkit for linear, deterministic, matrix-based representation transforms.
 
 ## Installation
 
-transix can be installed using `pip install transix`
+transix can be installed from PyPI using the command `pip install transix`
 
-## Example: Numerical Transform
+## Example: Fortescue Transform
 
 ```python
-import numpy as np
-import transix
-
-a = 1 + 0j
-b = np.exp(-1j * 2*np.pi/3)
-c = np.exp( 1j * 2*np.pi/3)
-
-seq = transix.abc_to_sym(a, b, c)
+import transix as tx
+Ea = 60+0j
+Eb = 45-75j
+Ec = -21+120j
+seq = tx.abc_to_sym(Ea, Eb, Ec)
 
 a0, b0, c0 = seq.zero
 a1, b1, c1 = seq.pos
@@ -33,7 +28,7 @@ a2, b2, c2 = seq.neg
 
 ## Testing
 
-All transforms are validated using extensive, detailed tests verified with `pytest`.
+All transforms are tested and verifiable via `pytest`
 
 ## Roadmap
 
