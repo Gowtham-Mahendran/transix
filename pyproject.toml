@@ -39,6 +39,7 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/Gowtham-Mahendran/transix"
+Documentation = "https://Gowtham-Mahendran.github.io/transix"
 Repository = "https://github.com/Gowtham-Mahendran/transix"
 Issues = "https://github.com/Gowtham-Mahendran/transix/issues"  
 
