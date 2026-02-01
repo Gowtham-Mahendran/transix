@@ -318,7 +318,7 @@ document.write(`
 <dl class="py function">
 <dt class="sig sig-object py" id="transix.abc_to_sym">
 <span class="sig-prename descclassname"><span class="pre">transix.</span></span><span class="sig-name descname"><span class="pre">abc_to_sym</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#transix.abc_to_sym" title="Link to this definition">#</a></dt>
-<dd><p>Compute symmetrical components (Fortescue transform) from abc quantities.</p>
+<dd><p>Compute symmetrical components (Fortescue transform [1]) from abc quantities.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -337,6 +337,15 @@ document.write(`
 <dt><code class="docutils literal notranslate"><span class="pre">out.neg</span></code><span class="classifier">tuple of complex</span></dt><dd><p>Negative-sequence phase quantities <code class="docutils literal notranslate"><span class="pre">(a2,</span> <span class="pre">b2,</span> <span class="pre">c2)</span></code>.</p>
 </dd>
 </dl>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Other Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>power_invariant</strong><span class="classifier">bool, optional</span></dt><dd><p>(Planned) If True, use the power-invariant Fortescue formulation.
+Default is False (amplitude-invariant).</p>
+</dd>
+<dt><strong>decimals</strong><span class="classifier">int, optional</span></dt><dd><p>(Planned) Number of decimal places to round complex outputs.</p>
 </dd>
 </dl>
 </dd>
@@ -398,6 +407,15 @@ of Unbalanced Electrical Circuits; Mc-Graw-Hill: New York, NY, USA, 1933.</p>
 <span class="go">(72.29+11.55j, -26.14-68.38j, -46.15+56.83j)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">seq</span><span class="o">.</span><span class="n">neg</span>
 <span class="go">(-40.29-26.55j, 43.14-21.62j, -2.85+48.17j)</span>
+</pre></div>
+</div>
+<p>The original sequence can be constructed again by,</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">seq</span><span class="o">.</span><span class="n">zero</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">seq</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">seq</span><span class="o">.</span><span class="n">neg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">60+0j</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">seq</span><span class="o">.</span><span class="n">zero</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">seq</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">seq</span><span class="o">.</span><span class="n">neg</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="go">45-75j</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">seq</span><span class="o">.</span><span class="n">zero</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">seq</span><span class="o">.</span><span class="n">pos</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">+</span><span class="n">seq</span><span class="o">.</span><span class="n">neg</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="go">-21+120j</span>
 </pre></div>
 </div>
 </dd></dl>
