@@ -36,7 +36,8 @@ def abc_to_sym(a, b, c):
 
     Notes
     -----
-    Uses the Fortescue symmetrical component transformation with :math:`\alpha = e^{j2\pi/3}`.
+    Uses the Fortescue symmetrical component transformation with 
+    :math:`\alpha = e^{j2\pi/3}`.
     
     The sequence components are computed by,
 
@@ -88,9 +89,12 @@ def abc_to_sym(a, b, c):
 
     References
     ----------
-
-    .. [1] Fortescue, C.L. Method of symmetrical co-ordinates applied to the solution of poly-phase networks (with discussion). Presented at the 34th Annual Convention of the AIEE (American Institute of Electrical Engineers), Atlantic City, NJ, USA, 28 June 1918; Volume 37, pp. 1027-1140.
-    .. [2] Wagner, C.F.; Evans, R.D. Symmetrical Components as Applied to the Analysis of Unbalanced Electrical Circuits; Mc-Graw-Hill: New York, NY, USA, 1933.
+    .. [1] Fortescue, C.L. Method of symmetrical co-ordinates applied to the solution
+        of poly-phase networks (with discussion). Presented at the 34th Annual 
+        Convention of the AIEE (American Institute of Electrical Engineers), Atlantic 
+        City, NJ, USA, 28 June 1918; Volume 37, pp. 1027-1140.
+    .. [2] Wagner, C.F.; Evans, R.D. Symmetrical Components as Applied to the Analysis 
+        of Unbalanced Electrical Circuits; Mc-Graw-Hill: New York, NY, USA, 1933.
 
     """
 
