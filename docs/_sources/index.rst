@@ -11,6 +11,5 @@ Contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Functions
 
-   transforms/abc_to_sym
+   transforms/transforms
