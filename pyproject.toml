@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "transix"
-version = "0.0.1"
+version = "0.1.0"
 description = "A lightweight toolkit for numerical transformations"
 readme = "README.md"
 requires-python = ">=3.12"
@@ -20,7 +20,7 @@ keywords = [
   "transforms"
 ]
 classifiers = [
-  "Development Status :: 3 - Alpha",
+  "Development Status :: 4 - Beta",
   "Intended Audience :: Science/Research",
   "Intended Audience :: Developers",
   "Topic :: Scientific/Engineering",
@@ -41,7 +41,8 @@ dependencies = [
 Homepage = "https://github.com/Gowtham-Mahendran/transix"
 Documentation = "https://Gowtham-Mahendran.github.io/transix"
 Repository = "https://github.com/Gowtham-Mahendran/transix"
-Issues = "https://github.com/Gowtham-Mahendran/transix/issues"  
+Issues = "https://github.com/Gowtham-Mahendran/transix/issues"
+Changelog = "https://github.com/Gowtham-Mahendran/transix/blob/master/CHANGELOG.md"
 
 [project.optional-dependencies]
 dev = [
