@@ -8,6 +8,7 @@ transix.egg-info/
 uv.lock
 dist/
 .coverage
+calc/
 
 #sphinx
 sphinx/build
