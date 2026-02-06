@@ -127,7 +127,7 @@ def generate_abc(mag, f, t, fs, phase_shift=0.0):
     phi = np.deg2rad(phase_shift)
 
     a = np.sqrt(2) * mag * np.sin(w*time + phi)
-    b = np.sqrt(2) * mag * np.sin(w*time - np.deg2rad(120) + phi)
-    c = np.sqrt(2) * mag * np.sin(w*time - np.deg2rad(240) + phi)
+    b = np.sqrt(2) * mag * np.sin(w*time + np.deg2rad(-120) + phi)
+    c = np.sqrt(2) * mag * np.sin(w*time + np.deg2rad(-240) + phi)
     
     return a,b,c
