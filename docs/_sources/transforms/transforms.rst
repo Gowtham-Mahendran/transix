@@ -1,9 +1,4 @@
 Transformations
 ===============
 
-.. currentmodule:: transix
-
-.. autosummary::
-   :toctree: generated/
-
-   abc_to_sym
+.. include:: _autosummary.rst

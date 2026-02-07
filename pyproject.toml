@@ -7,7 +7,7 @@ name = "transix"
 version = "0.1.0"
 description = "A lightweight toolkit for numerical transformations"
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.11"
 license = "MIT"
 license-files = ["LICENSE"]
 authors = [{ name = "Gowtham Mahendran", email = "gowtham.mahendran@outlook.com"}]
@@ -28,6 +28,7 @@ classifiers = [
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14"
@@ -49,7 +50,8 @@ dev = [
   "pytest>=9.0",
   "ruff>=0.14",
   "pytest-cov>=7.0",
-  "Sphinx>=9.1",
+  'sphinx>=8,<9; python_version < "3.12"',
+  'Sphinx>=9.1; python_version >= "3.12"',
   "sphinx-book-theme>=1.1.4",
   "myst-parser>=5.0",
   "numpydoc>=1.10"
