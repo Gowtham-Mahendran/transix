@@ -100,11 +100,15 @@ def test_generate_abc_phase_shift():
     mag, f, t, fs = 1, 1, 1, 5000
 
     for shift in [0,90,180,270,360]:
-        r, y, b = transix.generate_abc(mag=mag, f=f, t=t, fs=fs, phase_shift=shift)
+        r, y, b = transix.generate_abc(
+            mag=mag, f=f, t=t, fs=fs, phase_shift=shift)
 
-        a_ref = transix.generate_sine(mag=mag, f=f, t=t, fs=fs, phase_shift=0 + shift)
-        b_ref = transix.generate_sine(mag=mag, f=f, t=t, fs=fs, phase_shift=-120 + shift)
-        c_ref = transix.generate_sine(mag=mag, f=f, t=t, fs=fs, phase_shift=-240 + shift)
+        a_ref = transix.generate_sine(
+            mag=mag, f=f, t=t, fs=fs, phase_shift=0 + shift)
+        b_ref = transix.generate_sine(
+            mag=mag, f=f, t=t, fs=fs, phase_shift=-120 + shift)
+        c_ref = transix.generate_sine(
+            mag=mag, f=f, t=t, fs=fs, phase_shift=-240 + shift)
 
         assert np.allclose(r,a_ref,atol=1e-12)
         assert np.allclose(y,b_ref,atol=1e-12)
