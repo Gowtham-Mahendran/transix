@@ -12,3 +12,4 @@ calc/
 
 #sphinx
 sphinx/build
+docs/
