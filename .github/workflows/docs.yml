@@ -27,6 +27,11 @@ jobs:
         run: |
           cd sphinx
           uv run make html
+          ls -la ../docs
+
+      - name: Configure Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
