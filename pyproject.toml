@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = "transix"
-version = "0.1.0"
+version = "0.2.0rc1"
 description = "A lightweight toolkit for numerical transformations"
 readme = "README.md"
 requires-python = ">=3.11"
