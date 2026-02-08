@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/pypi/l/transix.svg)](https://github.com/Gowtham-Mahendran/transix/blob/main/LICENSE)
 [![Docs](https://img.shields.io/badge/docs-online-blue)](https://Gowtham-Mahendran.github.io/transix/)
 
-**transix** is a lightweight toolkit for linear, deterministic, matrix-based representation transforms.
+**transix** is a lightweight toolkit for linear, deterministic, matrix-based representation transforms, commonly used in electrical and control engineering.
 
 ## Installation
 
@@ -28,16 +28,11 @@ a2, b2, c2 = seq.neg
 
 ## Testing
 
-All transforms are tested and verifiable via `pytest`
+All transforms and utilities are tested and verifiable using `pytest`
 
 ## Roadmap
 
-Planned additions include:
-
-* Clarke transforms
-* Park transforms
-* Inverse transforms
-* Expanded documentation and examples
+See [`ROADMAP.md`](https://github.com/Gowtham-Mahendran/transix/blob/main/ROADMAP.md) for planned additions and future work.
 
 ## Contributing
 
