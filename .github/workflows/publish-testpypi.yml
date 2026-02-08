@@ -1,0 +1,31 @@
+name: publish-testpypi
+
+on:
+  push:
+    tags:
+      - "v*rc*"
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: testpypi
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+      - run: uv python install 3.12
+
+      - name: Ensure tag is on dev
+        run: |
+          git fetch origin dev --no-tags --prune
+          git branch -r --contains "$GITHUB_SHA" | grep -q "origin/dev"
+
+      - run: uv build
+
+      - name: Publish to TestPyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          repository-url: https://test.pypi.org/legacy/

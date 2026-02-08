@@ -17,27 +17,19 @@ The goal is correctness, clarity, and long-term stability — not feature rush.
 
 ## v0.2.0 — Signal Generation (Base)
 
-![status-ongoing](https://img.shields.io/badge/status-ongoing-blue)
+![status-done](https://img.shields.io/badge/status-done-brightgreen)
 
 **Focus:** Test & reference signals
 
-* `generate_sine()`
+* `generate_sine()` and `generate_abc()`
 * Phase, frequency, amplitude, offset
 * Scalar + vectorized time support
 * Deterministic, math-documented
 
-**Focus:** System-level signals
-
-* `generate_abc()`
-* Balanced / unbalanced sets
-* Phase sequence (abc / acb)
-* Zero-sequence injection
-* Built on `generate_sine()`
-
-
 ## v0.3.0 — Clarke Transform
 
-<!-- ![status-planned](https://img.shields.io/badge/status-planned-lightgrey) -->
+<!-- ![status-ongoing](https://img.shields.io/badge/status-ongoing-blue) -->
+![status-planned](https://img.shields.io/badge/status-planned-lightgrey)
 
 **Focus:** Stationary reference frame
 
