@@ -35,6 +35,10 @@ def generate_sine(mag, f, t, fs, phase_shift=0.0):
     out : ndarray
         Sine wave samples over time.
 
+    See Also
+    --------
+    :func:`transix.generate_abc`
+
     Examples
     --------
     A sine wave of magnitude 1, frequency 1Hz is generated for
@@ -92,6 +96,10 @@ def generate_abc(mag, f, t, fs, phase_shift=0.0):
     -------
     out : ndarray, shape (N,3)
         Three phase balanced sine wave over time.
+
+    See Also
+    --------
+    :func:`transix.generate_sine`
 
     Examples
     --------
