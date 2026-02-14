@@ -13,7 +13,7 @@ class SequenceABC(NamedTuple):
 
 def abc_to_sym(a, b, c):
     r"""
-    Compute symmetrical components (Fortescue transform [1]) from abc quantities.
+    Compute symmetrical components using Fortescue transform from abc quantities.
 
     Parameters
     ----------
@@ -45,7 +45,7 @@ def abc_to_sym(a, b, c):
 
     Notes
     -----
-    Uses the Fortescue symmetrical component transformation with 
+    Uses the Fortescue symmetrical component transformation [1] with 
     :math:`\alpha = e^{j2\pi/3}`.
     
     The sequence components are computed by,
