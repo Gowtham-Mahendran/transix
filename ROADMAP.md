@@ -8,8 +8,6 @@ The goal is correctness, clarity, and long-term stability — not feature rush.
 
 ![status-done](https://img.shields.io/badge/status-done-brightgreen)
 
-**Focus:** Unbalanced power systems
-
 * abc → (0, +, −) sequences
 * Explicit Fortescue matrix
 * Scalar + vectorized support
@@ -19,106 +17,105 @@ The goal is correctness, clarity, and long-term stability — not feature rush.
 
 ![status-done](https://img.shields.io/badge/status-done-brightgreen)
 
-**Focus:** Test & reference signals
-
 * `generate_sine()` and `generate_abc()`
 * Phase, frequency, amplitude, offset
-* Scalar + vectorized time support
 * Deterministic, math-documented
 
 ## v0.3.0 — Clarke Transform
 
-<!-- ![status-ongoing](https://img.shields.io/badge/status-ongoing-blue) -->
-![status-planned](https://img.shields.io/badge/status-planned-lightgrey)
-
-**Focus:** Stationary reference frame
+![status-ongoing](https://img.shields.io/badge/status-ongoing-blue)
 
 * abc → αβ0 (power-invariant)
-* Explicit transform matrix
-* Scalar + vectorized support
+* Variants included
 * Unit tests & math docs
 
 
 ## v0.4.0 — Clarke Inverse
 
-**Focus:** Reversibility
+![status-planned](https://img.shields.io/badge/status-planned-lightgrey)
 
 * αβ0 → abc
 * Round-trip validation
-* Numerical tolerance definition
+
+## v0.5.0 — Park abc → dq0
+
+* abc → dq0 (chained reference)
+* Same defaults as Clarke/Park
+* Tests vs chained path
+* `alignment="d_axis"|"q_axis"`
+* `angle="sin"|"cos"`
 
 
-## v0.5.0 — Clarke Variants
+## v0.6.0 — Inverse Park dq0 → abc
 
-**Focus:** Practical variants
-
-* Power-variant Clarke
-* Method selection via arguments
+* dq0 → abc (chained reference)
+* Same defaults as Clarke/Park
 
 
-## v0.6.0 — Park Transform (Base)
-
-**Focus:** Rotating reference frame
+## v0.7.0 — clarke to Park
 
 * αβ0 → dq0
+* variants included
 * Angle convention clearly defined
 * Power-invariant formulation
 
 
-## v0.7.0 — Park Inverse
-
-**Focus:** Completeness
+## v0.8.0 — Park to clarke
 
 * dq0 → αβ0
 * dq ↔ αβ round-trip tests
 
 
-## v0.8.0 — Park Variants
+v1.1 — Power from Clarke frame
 
-**Focus:** Practical usage
+Clarke power calculation (αβ → P, Q)
 
-* Power-variant Park
-* Zero-sequence-free (dq)
-* Method selection via arguments
+Instantaneous p–q formulation
 
-
-## v0.9.0 — Direct abc → dq0 (Base)
-
-**Focus:** Convenience API
-
-* abc → dq0 (chained reference)
-* Same defaults as Clarke/Park
-* Tests vs chained path
+Clear assumptions (3-phase, stationary frame)
 
 
-## v0.10.0 — abc → dq0 (Convention Control)
 
-**Focus:** Angles & alignment
+v1.2 — Power from Park frame
 
-* `angle="sin"|"cos"`
-* `direction="abc"|"acb"`
-* `alignment="d_axis"|"q_axis"`
+Park power calculation (dq → P, Q)
 
+Power-invariant formulation
 
-## v0.11.0 — abc → dq0 (Topology & IO)
-
-**Focus:** Real systems
-
-* 3-wire / 4-wire handling
-* Zero-sequence control
-* Input forms & output slicing
+Control-oriented examples
 
 
-## v1.0.0 — Stable Electrical Core
 
-**Focus:** Stability & polish
+v1.3 — Generic P–Q from V & I
 
-* API freeze
-* Unified naming & signatures
-* Coverage ≥ 95%
-* Docs complete
-* **Stable**
+P, Q from (V, I)
+
+Frame-agnostic API
+
+abc / αβ / dq support
+
+RMS + instantaneous options
 
 
-This ordering is **conceptually perfect**:
-signals → transforms → composed APIs.
+
+v1.4 — Dual Synchronous Reference Frame
+
+DSRF implementation
+
+Positive/negative dq separation
+
+Angle handling & sign conventions
+
+Unbalanced signal validation
+
+
+
+v1.5 — DDSRF
+
+Decoupled double SRF
+
+Cross-coupling removal
+
+Control-ready outputs
+
+Research-grade validation
