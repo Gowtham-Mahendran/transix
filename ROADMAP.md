@@ -9,9 +9,9 @@ The goal is correctness, clarity, and long-term stability — not feature rush.
 ![status-done](https://img.shields.io/badge/status-done-brightgreen)
 
 * abc → (0, +, −) sequences
+* `abc_to_sym()`
 * Explicit Fortescue matrix
 * Scalar + vectorized support
-
 
 ## v0.2.0 — Signal Generation (Base)
 
@@ -23,48 +23,48 @@ The goal is correctness, clarity, and long-term stability — not feature rush.
 
 ## v0.3.0 — Clarke Transform
 
-![status-ongoing](https://img.shields.io/badge/status-ongoing-blue)
+![status-done](https://img.shields.io/badge/status-done-brightgreen)
 
-* abc → αβ0 (power-invariant)
+* `abc_to_ab0()`
 * Variants included
 * Unit tests & math docs
 
-
 ## v0.4.0 — Clarke Inverse
 
-![status-planned](https://img.shields.io/badge/status-planned-lightgrey)
+![status-ongoing](https://img.shields.io/badge/status-ongoing-blue)
 
-* αβ0 → abc
+* `ab0_to_abc()`
+* Unit tests & math docs
 * Round-trip validation
 
 ## v0.5.0 — Park abc → dq0
 
-* abc → dq0 (chained reference)
-* Same defaults as Clarke/Park
-* Tests vs chained path
+![status-planned](https://img.shields.io/badge/status-planned-lightgrey)
+
+* `abc_to_dq0`
+* Same defaults as Clarke
 * `alignment="d_axis"|"q_axis"`
 * `angle="sin"|"cos"`
-
+* Unit tests & math docs
 
 ## v0.6.0 — Inverse Park dq0 → abc
 
-* dq0 → abc (chained reference)
-* Same defaults as Clarke/Park
-
+* `dq0_to_abc`
+* Unit tests & math docs
 
 ## v0.7.0 — clarke to Park
 
-* αβ0 → dq0
+* `ab0_to_dq0()`
 * variants included
-* Angle convention clearly defined
 * Power-invariant formulation
-
+* Unit tests & math docs
 
 ## v0.8.0 — Park to clarke
 
-* dq0 → αβ0
-* dq ↔ αβ round-trip tests
+* `dq0_to_ab0()`
+* Unit tests & math docs
 
+<!-- 
 
 v1.1 — Power from Clarke frame
 
@@ -118,4 +118,4 @@ Cross-coupling removal
 
 Control-ready outputs
 
-Research-grade validation
+Research-grade validation -->

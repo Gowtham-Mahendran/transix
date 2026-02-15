@@ -4,8 +4,8 @@ build-backend = "uv_build"
 
 [project]
 name = "transix"
-version = "0.3.0rc1"
-description = "A lightweight toolkit for numerical transformations"
+version = "0.3.0rc2"
+description = "A lightweight Python library for power system and control engineering transforms"
 readme = "README.md"
 requires-python = ">=3.11"
 license = "MIT"
