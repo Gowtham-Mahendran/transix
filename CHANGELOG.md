@@ -1,3 +1,6 @@
+## 0.3.0
+- Added clarke transformation function `abc_to_ab0()`
+
 ## 0.2.0
 - Added signal generation utilities `generate_sine()` and `generate_abc()`
 - Added python support and automated CI testing for 3.11 in addition to 3.12, 3.13 and 3.14
