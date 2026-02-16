@@ -9,8 +9,8 @@
 import os
 import sys
 import tomllib
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
 # docs are in: transix/sphinx/
 # package is in: transix/transix/
