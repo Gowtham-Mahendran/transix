@@ -8,15 +8,23 @@
 
 import os
 import sys
+import tomllib
+from pathlib import Path
+from datetime import datetime
 
 # docs are in: transix/sphinx/
 # package is in: transix/transix/
 sys.path.insert(0, os.path.abspath("../.."))
 
+pyproject_path = Path(__file__).resolve().parents[2] / "pyproject.toml"
+
+with open(pyproject_path, "rb") as f:
+    data = tomllib.load(f)
+
 project = 'transix'
-copyright = '2026, Gowtham Mahendran'
+copyright = str(datetime.now().year)
 author = 'Gowtham Mahendran'
-release = 'v0.0.1'
+release = data["project"]["version"]
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -41,3 +49,17 @@ exclude_patterns = []
 
 html_theme = "sphinx_book_theme"
 html_static_path = ['_static']
+html_title = "transix"
+# html_favicon = "_static/logo-square.svg"
+html_last_updated_fmt = ""
+
+html_theme_options = {
+    "repository_url": "https://github.com/Gowtham-Mahendran/transix",
+    "use_repository_button": True,
+    "use_issues_button": True,
+    # "logo": {
+    #     "image_light": "_static/logo-light.png",
+    #     "image_dark": "_static/logo-dark.png",
+    #     "link": "some/other-page",
+    # }
+}
