@@ -4,6 +4,10 @@
     * Button to raise issues directly from docs.
     * Dynamic versioning from `pyproject.toml`
     * html title and copyright year
+- DevOps:
+    * `dev` and `docs` in optional dependencies
+    * `RELEASE.md` added as a checklist
+    * `commitizen` added to dev dependencies for standardized commit messages
 
 ## 0.3.0
 - Added clarke transformation function `abc_to_ab0()`
