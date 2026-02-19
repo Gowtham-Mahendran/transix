@@ -1,10 +1,10 @@
 import numpy as np
 
 
-def time_array(t,fs):
+def time(t, fs, endpoint=True):
 
     dt = 1.0 / fs
-    n = int(t * fs) + 1
+    n = int(t * fs) + (1 if endpoint else 0)
 
     return np.arange(n) * dt
 
@@ -62,11 +62,11 @@ def generate_sine(mag, f, t, fs, phase_shift=0.0):
  
     """
 
-    w = float(2*np.pi*f)
-    time = time_array(t,fs)
+    w = float(2* np.pi * f)
+    time_array = time(t, fs)
     phi = np.deg2rad(phase_shift)
 
-    return np.sqrt(2) * mag * np.sin(w*time + phi)
+    return np.sqrt(2) * mag * np.sin(w * time_array + phi)
 
 
 
@@ -131,11 +131,11 @@ def generate_abc(mag, f, t, fs, phase_shift=0.0):
     """
 
     w = float(2*np.pi*f)
-    time = time_array(t,fs)
+    time_array = time(t,fs)
     phi = np.deg2rad(phase_shift)
 
-    a = np.sqrt(2) * mag * np.sin(w*time + phi)
-    b = np.sqrt(2) * mag * np.sin(w*time + np.deg2rad(-120) + phi)
-    c = np.sqrt(2) * mag * np.sin(w*time + np.deg2rad(-240) + phi)
+    a = np.sqrt(2) * mag * np.sin(w*time_array + phi)
+    b = np.sqrt(2) * mag * np.sin(w*time_array + np.deg2rad(-120) + phi)
+    c = np.sqrt(2) * mag * np.sin(w*time_array + np.deg2rad(-240) + phi)
     
     return a,b,c
