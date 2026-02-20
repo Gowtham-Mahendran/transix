@@ -2,6 +2,11 @@ import numpy as np
 
 import transix
 
+def test_time():
+
+    t = transix.time(t=1, fs=1000)
+
+    print(t)
 
 def test_generate_sine_input_parameters():
 

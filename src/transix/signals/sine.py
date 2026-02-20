@@ -2,7 +2,7 @@ import numpy as np
 
 
 def time(t, fs, endpoint=True):
-
+    # write docstrings and add to autogenerate
     dt = 1.0 / fs
     n = int(t * fs) + (1 if endpoint else 0)
 
