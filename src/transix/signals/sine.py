@@ -2,8 +2,35 @@ import numpy as np
 
 
 def time(duration, fs, endpoint=True):
-    # write docstrings and add to autogenerate
-    # write tests
+    r"""
+    Generate timestamps for signal
+
+    Parameters
+    ----------
+    duration : float
+        The end time in seconds.
+
+    fs : int
+        The sampling frequency in Hertz.
+
+    endpoint : bool, optional
+        The end time stamp to be included or not
+
+    Returns
+    -------
+    out: ndarray
+        time stamps
+
+    Examples
+    --------
+    Generating a time array for 1sec with a sampling frequency of 1kHz
+
+    >>> import transix as tx
+    >>> tx.time(duration=1, fs=1000)
+    [0.    0.001 0.002 ... 0.998 0.999 1. ]
+
+    """
+
     dt = 1.0 / fs
     n = int(duration * fs) + (1 if endpoint else 0)
 
