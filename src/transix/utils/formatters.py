@@ -2,10 +2,39 @@
 
 
 def fmt_mmss(x, pos=None):
-    # formatter for matplotlib time axis plotting
-    # usage: ax.xaxis.set_major_formatter(FuncFormatter(fmt_mmss))
-    # add test conditions
-    # doc strings
+    r"""
+    Format a time value in seconds as ``mm:ss.mmm``.
+
+    Intended for Matplotlib tick formatting via
+    ``matplotlib.ticker.FuncFormatter``.
+
+    Parameters
+    ----------
+    x : float
+        Time value in seconds (tick value).
+    pos : int, optional
+        Tick position index passed by Matplotlib (unused).
+
+    Returns
+    -------
+    str
+        Formatted time label in minutes and seconds with milliseconds
+        precision (e.g., ``"02:05.700"``).
+
+    Examples
+    --------
+    >>> import transix as tx
+    >>> import matplotlib.pyplot as plt
+    >>> from matplotlib.ticker import FuncFormatter
+    >>> 
+    >>> t = tx.time(duration=120, fs=10000)
+    >>> y = tx.generate_sine(mag=1, f=1, t=120, fs=10000)
+    >>> fig, ax = plt.subplots()
+    >>> ax.plot(t, y)
+    >>> ax.xaxis.set_major_formatter(FuncFormatter(tx.fmt_mmss))
+    >>> plt.show()
+    """
+
     m = int(x // 60)
     s = x - 60*m
     return f"{m:02d}:{s:06.3f}"

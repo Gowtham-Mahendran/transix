@@ -3,7 +3,7 @@ import numpy as np
 
 def time(duration, fs, endpoint=True):
     r"""
-    Generate timestamps for signal
+    Generate uniformly sampled timestamps
 
     Parameters
     ----------
@@ -23,7 +23,7 @@ def time(duration, fs, endpoint=True):
 
     Examples
     --------
-    Generating a time array for 1sec with a sampling frequency of 1kHz
+    Generating timestamps for 1sec with a sampling frequency of 1kHz
 
     >>> import transix as tx
     >>> tx.time(duration=1, fs=1000)
