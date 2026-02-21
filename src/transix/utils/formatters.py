@@ -39,6 +39,10 @@ def fmt_mmss(x, pos=None):
         
     x = round(float(x), 3)
 
+    # Handle negative x axis
+    sign = "-" if x < 0 else ""
+    x = abs(x)
+    
     m = int(x // 60)
     s = x - 60*m
-    return f"{m:02d}:{s:06.3f}" 
+    return f"{sign}{m:02d}:{s:06.3f}" 
