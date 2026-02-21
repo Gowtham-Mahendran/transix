@@ -20,8 +20,8 @@ jobs:
       - name: Set up Python
         run: uv python install 3.12
 
-      - name: Sync deps (dev)
-        run: uv sync --extra dev
+      - name: Sync deps (docs)
+        run: uv sync --extra docs
 
       - name: Build docs (exactly like local)
         run: |

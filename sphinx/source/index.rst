@@ -17,9 +17,16 @@ Documentation for each transform and function is organized below.
 
 .. include:: signals/_autosummary_index.rst
 
+:doc:`utils/formatters`
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. include:: utils/_autosummary_index.rst
+
+
 .. toctree::
    :maxdepth: 1
    :hidden:
 
    transforms/transforms
    signals/signals
+   utils/formatters
