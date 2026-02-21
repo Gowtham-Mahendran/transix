@@ -10,18 +10,34 @@ permissions:
   contents: read
 
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      on_dev: ${{ steps.chk.outputs.on_dev }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - id: chk
+        run: |
+          git fetch origin dev --no-tags --prune
+          if git branch -r --contains "$GITHUB_SHA" | grep -q "origin/dev"; then
+            echo "on_dev=true" >> $GITHUB_OUTPUT
+          else
+            echo "on_dev=false" >> $GITHUB_OUTPUT
+          fi
+
   publish:
+    needs: check
+    if: needs.check.outputs.on_dev == 'true'
     runs-on: ubuntu-latest
     environment: testpypi
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
       - uses: astral-sh/setup-uv@v3
       - run: uv python install 3.12
-
-      - name: Ensure tag is on dev
-        run: |
-          git fetch origin dev --no-tags --prune
-          git branch -r --contains "$GITHUB_SHA" | grep -q "origin/dev"
 
       - run: uv build
 
