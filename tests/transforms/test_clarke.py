@@ -5,7 +5,7 @@ import transix as tx
 
 def test_clarke_balanced_three_phase_signal():
 
-    a,b,c = tx.generate_abc(mag=230,f=50,t=0.1,fs=50000)
+    a,b,c = tx.generate_abc(rms=230,f=50,t=0.1,fs=50000)
 
     # Variant is not mentioned. default: power_invariant
     alpha,beta,z = tx.abc_to_ab0(a,b,c)
@@ -22,7 +22,7 @@ def test_clarke_balanced_three_phase_signal():
 
 def test_clarke_wrong_input_variant():
 
-    a,b,c = tx.generate_abc(mag=230,f=50,t=0.1,fs=50000)
+    a,b,c = tx.generate_abc(rms=230,f=50,t=0.1,fs=50000)
 
     with pytest.raises(ValueError, match=
     "variant must be 'power_invariant' or 'power_variant'"):
@@ -31,7 +31,7 @@ def test_clarke_wrong_input_variant():
 
 def test_clarke_power_variant_and_invariant():
 
-    a,b,c = tx.generate_abc(mag=230,f=50,t=0.02,fs=50000)
+    a,b,c = tx.generate_abc(rms=230,f=50,t=0.02,fs=50000)
 
     # a = np.round(a, 4)
     # b = np.round(b, 4)
