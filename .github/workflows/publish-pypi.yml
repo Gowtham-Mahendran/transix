@@ -2,8 +2,8 @@ name: publish-pypi
 
 on:
   push:
-    tags:
-      - "v*"
+    branches:
+      - main
 
 permissions:
   id-token: write
@@ -11,33 +11,35 @@ permissions:
 
 jobs:
   publish:
-    if: "!contains(github.ref_name, 'rc')"
     runs-on: ubuntu-latest
     environment: pypi
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
       - uses: astral-sh/setup-uv@v3
 
       - name: Set up Python
         run: uv python install 3.12
 
-      - name: Block rc tags
+      - name: Ensure latest dev tag matches pyproject version
         run: |
-          case "${GITHUB_REF_NAME}" in
-            *rc*) echo "Refusing to publish rc tag to PyPI: ${GITHUB_REF_NAME}"; exit 1 ;;
+          git fetch origin dev --tags --force
+          DEV_TAG=$(git describe --tags --match "v*" --abbrev=0 origin/dev)
+          DEV_VER="${DEV_TAG#v}"
+
+          PYVER=$(python -c "import tomllib; print(tomllib.load(open('pyproject.toml','rb'))['project']['version'])")
+
+          echo "dev tag=$DEV_TAG"
+          echo "pyproject=$PYVER"
+
+          case "$DEV_VER" in
+            *rc*) echo "Refusing to publish rc tag to PyPI: $DEV_TAG"; exit 1 ;;
           esac
 
-      - name: Ensure tag is on main
-        run: |
-          git fetch origin main --no-tags --prune
-          git branch -r --contains "$GITHUB_SHA" | grep -q "origin/main"
-
-      - name: Ensure pyproject version matches tag
-        run: |
-          TAG="${GITHUB_REF_NAME#v}"
-          PYVER=$(python -c "import tomllib; print(tomllib.load(open('pyproject.toml','rb'))['project']['version'])")
-          test "$PYVER" = "$TAG" || (echo "pyproject version=$PYVER != tag=$TAG" && exit 1)
+          test "$PYVER" = "$DEV_VER" || (echo "pyproject=$PYVER != dev tag=$DEV_VER" && exit 1)
 
       - name: Build
         run: uv build
