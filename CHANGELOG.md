@@ -1,3 +1,10 @@
+## v0.4.2 (2026-02-21)
+
+### Fix
+
+- **signal**: mag argument in signal generation func changed to rms
+- **python**: python support 3 10 removed
+
 ## v0.4.1 (2026-02-21)
 
 ## v0.4.0 (2026-02-21)
