@@ -1,6 +1,5 @@
 
 
-
 def fmt_mmss(x, pos=None):
     r"""
     Format a time value in seconds as ``mm:ss.mmm``.
@@ -20,11 +19,6 @@ def fmt_mmss(x, pos=None):
     str
         Formatted time label in minutes and seconds with milliseconds
         precision (e.g., ``"02:05.700"``).
-
-    Raises
-    ------
-    ValueError
-        If ``x`` is negative.
         
     Examples
     --------
@@ -42,9 +36,6 @@ def fmt_mmss(x, pos=None):
 
     # round to milliseconds
     # 59.9999s will be converted to 60s
-
-    if x < 0:
-        raise ValueError("Time must be non-negative.")
         
     x = round(float(x), 3)
 

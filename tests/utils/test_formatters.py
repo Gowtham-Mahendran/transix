@@ -1,5 +1,3 @@
-import pytest
-
 import transix as tx
 
 
@@ -19,7 +17,3 @@ def test_fmt_mmss_rollover():
 def test_fmt_mmss_rounding():
     # 59.9999 rounds to 1 minute
     assert tx.fmt_mmss(59.9999) == "01:00.000"
-
-def test_fmt_mmss_negative_time():
-    with pytest.raises(ValueError, match="Time must be non-negative."):
-        tx.fmt_mmss(-1)
