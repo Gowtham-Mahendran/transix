@@ -21,6 +21,11 @@ def fmt_mmss(x, pos=None):
         Formatted time label in minutes and seconds with milliseconds
         precision (e.g., ``"02:05.700"``).
 
+    Raises
+    ------
+    ValueError
+        If ``x`` is negative.
+        
     Examples
     --------
     >>> import transix as tx
@@ -35,6 +40,14 @@ def fmt_mmss(x, pos=None):
     >>> plt.show()
     """
 
+    # round to milliseconds
+    # 59.9999s will be converted to 60s
+
+    if x < 0:
+        raise ValueError("Time must be non-negative.")
+        
+    x = round(float(x), 3)
+
     m = int(x // 60)
     s = x - 60*m
-    return f"{m:02d}:{s:06.3f}"
+    return f"{m:02d}:{s:06.3f}" 
