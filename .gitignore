@@ -9,6 +9,7 @@ uv.lock
 dist/
 .coverage
 calc/
+tmp/
 
 #sphinx
 sphinx/build

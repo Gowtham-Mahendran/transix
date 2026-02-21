@@ -1,10 +1,38 @@
 import numpy as np
 
 
-def time_array(t,fs):
+def time(duration, fs, endpoint=True):
+    r"""
+    Generate uniformly sampled timestamps
+
+    Parameters
+    ----------
+    duration : float
+        The end time in seconds.
+
+    fs : int
+        The sampling frequency in Hertz.
+
+    endpoint : bool, optional
+        The end time stamp to be included or not
+
+    Returns
+    -------
+    out: ndarray
+        time stamps
+
+    Examples
+    --------
+    Generating timestamps for 1sec with a sampling frequency of 1kHz
+
+    >>> import transix as tx
+    >>> tx.time(duration=1, fs=1000)
+    [0.    0.001 0.002 ... 0.998 0.999 1. ]
+
+    """
 
     dt = 1.0 / fs
-    n = int(t * fs) + 1
+    n = int(duration * fs) + (1 if endpoint else 0)
 
     return np.arange(n) * dt
 
@@ -62,11 +90,11 @@ def generate_sine(mag, f, t, fs, phase_shift=0.0):
  
     """
 
-    w = float(2*np.pi*f)
-    time = time_array(t,fs)
+    w = float(2* np.pi * f)
+    time_array = time(duration=t, fs=fs)
     phi = np.deg2rad(phase_shift)
 
-    return np.sqrt(2) * mag * np.sin(w*time + phi)
+    return np.sqrt(2) * mag * np.sin(w * time_array + phi)
 
 
 
@@ -131,11 +159,11 @@ def generate_abc(mag, f, t, fs, phase_shift=0.0):
     """
 
     w = float(2*np.pi*f)
-    time = time_array(t,fs)
+    time_array = time(duration=t,fs=fs)
     phi = np.deg2rad(phase_shift)
 
-    a = np.sqrt(2) * mag * np.sin(w*time + phi)
-    b = np.sqrt(2) * mag * np.sin(w*time + np.deg2rad(-120) + phi)
-    c = np.sqrt(2) * mag * np.sin(w*time + np.deg2rad(-240) + phi)
+    a = np.sqrt(2) * mag * np.sin(w*time_array + phi)
+    b = np.sqrt(2) * mag * np.sin(w*time_array + np.deg2rad(-120) + phi)
+    c = np.sqrt(2) * mag * np.sin(w*time_array + np.deg2rad(-240) + phi)
     
     return a,b,c

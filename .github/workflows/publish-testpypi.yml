@@ -3,7 +3,7 @@ name: publish-testpypi
 on:
   push:
     tags:
-      - "v*rc*"
+      - "v*"
 
 permissions:
   id-token: write
