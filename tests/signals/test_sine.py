@@ -5,9 +5,9 @@ import transix
 
 def test_time():
 
-    t = transix.time(duration=1, fs=1000)
+    transix.time(duration=1, fs=1000)
 
-    print(t)
+    # print(t)
 
 def test_generate_sine_input_parameters():
 
